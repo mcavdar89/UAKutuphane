@@ -1,0 +1,26 @@
+
+<div class="form-group">
+  <input type="text" class="form-control" [(ngModel)]="serchKey" (keyup.enter)="setSerchKey($event)" placeholder="Ara"> 
+</div>
+<button class="btn btn-primary" (click)="setIlkDataAd()">Değiştir</button>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Id</th>
+        <th scope="col">Kitap Adı</th>
+        <th scope="col">Yazar</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for (item of filterKitapList; track $index) {
+            <tr>
+                <th scope="row">{{$index}}</th>
+                <td>{{item.id}}</td>
+                <td>{{item.ad}}</td>
+                <td>{{item.yazar}}</td>
+              </tr>
+        }   
+
+    </tbody>
+  </table>
