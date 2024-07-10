@@ -4,11 +4,16 @@ import { KitapService } from '../kitap.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { KitapFormComponent } from '../kitap-form/kitap-form.component';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { KitapForm2Component } from '../kitap-form2/kitap-form2.component';
 
 @Component({
   selector: 'app-kitap-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, KitapFormComponent],
+  imports: [CommonModule, DialogModule,ButtonModule, FormsModule, KitapForm2Component],
   templateUrl: './kitap-list.component.html',
   styleUrl: './kitap-list.component.scss'
 })
@@ -57,7 +62,7 @@ export class KitapListComponent implements OnInit {
   }
 
 
-
+ 
  
 
 
