@@ -1,1 +1,13 @@
-<p>kitap-form3 works!</p>
+Form 3
+<form [formGroup]="formGroup">
+    <div class="form-group">
+        <label>Kitap Adı</label>
+        <input type="text" formControlName="ad" 
+        class="form-control">       
+      </div>
+      <div class="form-group">
+        <label>Yazar</label>
+        <input type="text" formControlName="yazar" class="form-control">       
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit(formGroup.value)">Submit</button>
+</form>

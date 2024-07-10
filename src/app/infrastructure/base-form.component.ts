@@ -19,14 +19,21 @@ export class BaseFormComponent {
   }
 
 
-  setFormGroup(){
-    let group: any = {};   
-    
-    this.formControlTemplate.forEach(item=>{
+  setForm(item: any) {
+    this.setFormGroup();
+    if (item)
+      this.formGroup.patchValue(item);
+  }
+
+
+  setFormGroup() {
+    let group: any = {};
+
+    this.formControlTemplate.forEach(item => {
       group[item.key] = new FormControl(
         { value: item.value || null, disabled: item.disabled },
         this.getFormValidators(item)
-      );     
+      );
     });
 
     this.formGroup = this._fb.group(group);
@@ -66,7 +73,7 @@ export class BaseFormComponent {
     if (control.Email) {
       validators.push(Validators.email);
     }
-   
+
     return validators;
   }
 
