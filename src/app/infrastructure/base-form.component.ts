@@ -42,7 +42,7 @@ export class BaseFormComponent {
 
   getFormValidators(control: any): ValidatorFn[] {
     let validators: any[] = [];
-    if (control.Required) {
+    if (control.required) {
       validators.push(Validators.required);
     }
 

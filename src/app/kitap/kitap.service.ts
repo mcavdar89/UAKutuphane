@@ -1,11 +1,27 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ResponseDto } from '../models/responsedto.model';
+import { Kitap } from './models/kitap.model';
 
 @Injectable({
   providedIn:'root'
 })
 export class KitapService {
 
-  constructor() { }
+
+  httpClient: HttpClient;
+
+
+  constructor() { 
+    this.httpClient = inject(HttpClient);
+  }
+
+
+  getKitapList():Observable<ResponseDto<Kitap>>{
+    return this.httpClient.get<ResponseDto<Kitap>>('http://localhost:5200/api/personel/list');
+  }
+
 
 
   kitapListele() {
