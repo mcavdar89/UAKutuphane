@@ -19,7 +19,7 @@ export class BaseFormComponent {
   }
 
 
-  setForm(item: any) {
+  setForm(item?: any) {
     this.setFormGroup();
     if (item)
       this.formGroup.patchValue(item);
