@@ -5,6 +5,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginDto } from '../models/logindto.model';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -16,10 +17,12 @@ import { AuthService } from '../auth.service';
 export class LoginFormComponent extends BaseFormComponent implements OnInit {
 
   _authService: AuthService;
+  _router:Router;
   constructor() {
     super();
 
     this._authService = inject(AuthService);
+    this._router=inject(Router);
 
 
 
@@ -36,8 +39,12 @@ export class LoginFormComponent extends BaseFormComponent implements OnInit {
 
   login(item: LoginDto) {
     this._authService.login(item).subscribe(resp => {
-      if (resp.satatus)
+      if (resp.satatus){
         this._authService.setJwt(resp.data);
+
+        this._router.navigate(['']);
+      }
+
     })
   }
 

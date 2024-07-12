@@ -21,8 +21,14 @@ export class AuthService extends BaseService {
     localStorage.setItem('jwt', jwt);
   }
 
+  isLogin(): boolean {
+    return this.getJwt() != undefined;
+  
+  }
+
+
   login(item: LoginDto): Observable<any> {
-    return this.httpClient.post<any>(this.appConig.baseUrl + 'api/account/login', item);
+    return this.httpClient.post<any>('api/account/login', item);
   }
 
 

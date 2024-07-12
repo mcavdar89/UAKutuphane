@@ -6,7 +6,7 @@ import { FormControlTemplate } from './formControlTemplate.model';
   selector: 'app-base-form',
   standalone: true,
   imports: [],
-  template: '',
+  template: ``,
 
 })
 export class BaseFormComponent {
